@@ -11,8 +11,7 @@ import org.wahlque.transport.payload.Multiple;
 import org.wahlque.transport.payload.Number;
 import org.wahlque.transport.payload.Status;
 
-public class Transport
-{
+public class Transport {
 
     public static final char CR = '\r';
     public static final char LF = '\n';
@@ -20,16 +19,15 @@ public class Transport
 
     private static final char ZERO = '0';
 
-	public static void writeDiscriminator(OutputStream os, char discriminator) {
-	}
+    public static void writeDiscriminator(OutputStream os, char discriminator) {
+    }
 
     /**
      * Read text for a signed integer from the input stream.
      */
-    public static long readNumber(InputStream is)
-    		throws IOException
-    {
-        int sign = 1, next = is.read();;
+    public static long readNumber(InputStream is) throws IOException {
+        int sign = 1, next = is.read();
+        ;
         long number = 0;
 
         if (next == '-') {
@@ -51,7 +49,8 @@ public class Transport
             if (digit >= 0 && digit < 10) {
                 number = number * 10 + digit;
             } else {
-                throw new IOException("Invalid character in the section for size");
+                throw new IOException(
+                        "Invalid character in the section for size");
             }
             next = is.read();
         }
@@ -62,29 +61,27 @@ public class Transport
     /**
      * Read text for a signed integer from the input stream.
      */
-    public static int readSize(InputStream is)
-    		throws IOException
-    {
+    public static int readSize(InputStream is) throws IOException {
         long size = readNumber(is);
         if (size > Integer.MAX_VALUE) {
-            throw new IllegalArgumentException("Server only supports arrays up to " + Integer.MAX_VALUE + " in size");
+            throw new IllegalArgumentException(
+                    "Server only supports arrays up to " + Integer.MAX_VALUE
+                            + " in size");
         }
-        return (int)size;
+        return (int) size;
     }
 
     /**
      * Write a signed integer to the output stream.
      */
-	public static void writeNumber(OutputStream os, long value) {
-	}
+    public static void writeNumber(OutputStream os, long value) {
+    }
 
     /**
      * Read bytes by size from the stream.
      */
-    public static byte[] readBytes(InputStream is)
-    		throws IOException
-    {
-	    byte[] bytes = null;
+    public static byte[] readBytes(InputStream is) throws IOException {
+        byte[] bytes = null;
 
         int size = readSize(is);
         if (size < -1) {
@@ -92,65 +89,64 @@ public class Transport
         } else if (size > -1) {
             int total = 0, count = 0;
             bytes = new byte[(int) size];
-    	    while (total < bytes.length && (count = is.read(bytes, total, bytes.length - total)) != -1) {
-    	        total += count;
-    	    }
-    	    if (total < bytes.length) {
-    	        throw new IOException("No sufficient bytes to read: " + total);
-    	    }
-    	    int cr = is.read(), lf = is.read();
-    	    if (cr != CR || lf != LF) {
-    	        throw new IOException("Invalid ending character in the section for bytes: " + cr + ", " + lf);
-    	    }
+            while (total < bytes.length
+                    && (count = is.read(bytes, total, bytes.length - total)) != -1) {
+                total += count;
+            }
+            if (total < bytes.length) {
+                throw new IOException("No sufficient bytes to read: " + total);
+            }
+            int cr = is.read(), lf = is.read();
+            if (cr != CR || lf != LF) {
+                throw new IOException(
+                        "Invalid ending character in the section for bytes: "
+                                + cr + ", " + lf);
+            }
         }
 
         return bytes;
     }
 
-	public static void writeBytes(OutputStream os, byte[] value) {
-	}
+    public static void writeBytes(OutputStream os, byte[] value) {
+    }
 
-	public static String readString(InputStream is)
-	{
-		return null;
-	}
+    public static String readString(InputStream is) {
+        return null;
+    }
 
-	public static void writeString(OutputStream os, String value)
-	{
-	}
+    public static void writeString(OutputStream os, String value) {
+    }
 
     /**
      * Read a Reply from an input stream.
      */
-    public static Payload<?> readPayload(InputStream is)
-    		throws IOException
-    {
-    	Payload<?> payload;  
+    public static Payload<?> readPayload(InputStream is) throws IOException {
+        Payload<?> payload;
 
         switch (is.read()) {
-          case -1:
-        	  payload = null;
-      	      break;
-          case Status.discriminator:
-        	  payload = new Status();
-        	  break;
-          case Error.discriminator:
-        	  payload = new Error();
-        	  break;
-          case Number.discriminator:
-        	  payload = new Number();
-        	  break;
-          case Bytes.discriminator:
-        	  payload = new Bytes();
-        	  break;
-          case Multiple.discriminator:
-        	  payload = new Multiple();
-        	  break;
-          default:
-              throw new IOException("Unexpected character in stream");
+        case -1:
+            payload = null;
+            break;
+        case Status.discriminator:
+            payload = new Status();
+            break;
+        case Error.discriminator:
+            payload = new Error();
+            break;
+        case Number.discriminator:
+            payload = new Number();
+            break;
+        case Bytes.discriminator:
+            payload = new Bytes();
+            break;
+        case Multiple.discriminator:
+            payload = new Multiple();
+            break;
+        default:
+            throw new IOException("Unexpected character in stream");
         }
 
-  	    payload.read(is);
+        payload.read(is);
 
         return payload;
     }
@@ -159,16 +155,15 @@ public class Transport
      * Write a Reply to an output stream.
      */
     public void writePayload(OutputStream os, Payload<?> payload)
-    		throws IOException
-    {
-    	payload.write(os);  
+            throws IOException {
+        payload.write(os);
     }
 
-	public static Payload<?>[] readPayloads(InputStream is) {
-		return null;
-	}
+    public static Payload<?>[] readPayloads(InputStream is) {
+        return null;
+    }
 
-	public static void writePayloads(OutputStream os, Payload<?>[] value) {
-	}
+    public static void writePayloads(OutputStream os, Payload<?>[] value) {
+    }
 
 }

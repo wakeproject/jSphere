@@ -7,31 +7,26 @@ import java.io.OutputStream;
 import org.wahlque.transport.Payload;
 import org.wahlque.transport.Transport;
 
-public class Error implements Payload<String>
-{
-	
-	public static final char discriminator = '-';
+public class Error implements Payload<String> {
+
+    public static final char discriminator = '-';
     private String value;
 
-	public char discriminator()
-	{
-		return discriminator;
-	}
-
-    public String data()
-    {
-    	return value;
+    public char discriminator() {
+        return discriminator;
     }
 
-	public void read(InputStream is) throws IOException
-	{
-		value = Transport.readString(is);
-	}
+    public String data() {
+        return value;
+    }
 
-	public void write(OutputStream os) throws IOException
-	{
-		Transport.writeDiscriminator(os, discriminator);
-		Transport.writeString(os, value);
-	}
+    public void read(InputStream is) throws IOException {
+        value = Transport.readString(is);
+    }
+
+    public void write(OutputStream os) throws IOException {
+        Transport.writeDiscriminator(os, discriminator);
+        Transport.writeString(os, value);
+    }
 
 }

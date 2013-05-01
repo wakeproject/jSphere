@@ -7,26 +7,22 @@ import java.io.OutputStream;
 import org.wahlque.transport.Payload;
 
 public class Status implements Payload<String> {
-	
-	public static final char discriminator = '+';
+
+    public static final char discriminator = '+';
     private String value;
 
-	public char discriminator()
-	{
-		return discriminator;
-	}
-
-    public String data()
-    {
-    	return value;
+    public char discriminator() {
+        return discriminator;
     }
 
-	public void read(InputStream is) throws IOException
-	{
-	}
+    public String data() {
+        return value;
+    }
 
-	public void write(OutputStream os) throws IOException
-	{
-	}
+    public void read(InputStream is) throws IOException {
+    }
+
+    public void write(OutputStream os) throws IOException {
+    }
 
 }

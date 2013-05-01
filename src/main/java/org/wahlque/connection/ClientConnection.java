@@ -1,23 +1,18 @@
 package org.wahlque.connection;
 
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
 import org.wahlque.command.Command;
 import org.wahlque.reply.Reply;
-import org.wahlque.transport.Transport;
 
 /**
  * Implements the Redis Universal Protocol, send/receive a command or a reply
  */
-public class ClientConnection
-{
+public class ClientConnection {
 
     private final BufferedInputStream is;
     private final OutputStream os;
@@ -25,9 +20,7 @@ public class ClientConnection
     /**
      * Create a new connection from a socket connection.
      */
-    public ClientConnection(Socket socket)
-		  throws IOException
-    {
+    public ClientConnection(Socket socket) throws IOException {
         this.is = new BufferedInputStream(socket.getInputStream());
         this.os = new BufferedOutputStream(socket.getOutputStream());
     }
@@ -35,11 +28,9 @@ public class ClientConnection
     /**
      * Send a command over the wire, do not wait for a reponse.
      */
-    public void send(Command command)
-    		throws IOException
-    {
+    public void send(Command command) throws IOException {
         synchronized (this.os) {
-          command.write(os);
+            command.write(os);
         }
         this.os.flush();
     }
@@ -47,9 +38,7 @@ public class ClientConnection
     /**
      * Wait for a reply on the input stream.
      */
-    public Reply<?> receive()
-    		throws IOException
-    {
+    public Reply<?> receive() throws IOException {
         synchronized (this.is) {
             return null;
         }
@@ -58,9 +47,7 @@ public class ClientConnection
     /**
      * Close the input and output streams. Will also disconnect the socket.
      */
-    public void close()
-    		throws IOException
-    {
+    public void close() throws IOException {
         this.is.close();
         this.os.close();
     }

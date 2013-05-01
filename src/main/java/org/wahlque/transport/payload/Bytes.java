@@ -8,28 +8,25 @@ import org.wahlque.transport.Payload;
 import org.wahlque.transport.Transport;
 
 public class Bytes implements Payload<byte[]> {
-	
-	public static final char discriminator = '$';
+
+    public static final char discriminator = '$';
     private byte[] value;
 
-	public char discriminator() {
-		return discriminator;
-	}
+    public char discriminator() {
+        return discriminator;
+    }
 
-	public byte[] data() {
-		return value;
-	}
+    public byte[] data() {
+        return value;
+    }
 
-	public void read(InputStream is) throws IOException {
-		value = Transport.readBytes(is);
-	}
+    public void read(InputStream is) throws IOException {
+        value = Transport.readBytes(is);
+    }
 
-	public void write(OutputStream os)
-			throws IOException
-	{
-		Transport.writeDiscriminator(os, discriminator);
-		Transport.writeBytes(os, value);
-	}
+    public void write(OutputStream os) throws IOException {
+        Transport.writeDiscriminator(os, discriminator);
+        Transport.writeBytes(os, value);
+    }
 
 }
-

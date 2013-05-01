@@ -13,56 +13,52 @@ import org.junit.runners.JUnit4;
  * Unit test for Indexer.
  */
 @RunWith(JUnit4.class)
-public class IndexerTest 
-{
+public class IndexerTest {
 
     /**
-     *  Test all method
+     * Test all method
      */
-	@Test
-    public void testAll()
-    {
+    @Test
+    public void testAll() {
         assertEquals("failure - results not same", all(0), 12);
         assertEquals("failure - results not same", all(1), 48);
         assertEquals("failure - results not same", all(2), 192);
     }
 
     /**
-     *  Test ringByRind method
+     * Test ringByRind method
      */
-	@Test
-    public void testRingByRind1()
-    {
-        assertEquals("failure - results not same", ringByRind(0,  0), 1);
-        assertEquals("failure - results not same", ringByRind(0,  1), 1);
-        assertEquals("failure - results not same", ringByRind(0,  2), 1);
-        assertEquals("failure - results not same", ringByRind(0,  3), 1);
-        assertEquals("failure - results not same", ringByRind(0,  4), 2);
-        assertEquals("failure - results not same", ringByRind(0,  5), 2);
-        assertEquals("failure - results not same", ringByRind(0,  6), 2);
-        assertEquals("failure - results not same", ringByRind(0,  7), 2);
-        assertEquals("failure - results not same", ringByRind(0,  8), 3);
-        assertEquals("failure - results not same", ringByRind(0,  9), 3);
+    @Test
+    public void testRingByRind1() {
+        assertEquals("failure - results not same", ringByRind(0, 0), 1);
+        assertEquals("failure - results not same", ringByRind(0, 1), 1);
+        assertEquals("failure - results not same", ringByRind(0, 2), 1);
+        assertEquals("failure - results not same", ringByRind(0, 3), 1);
+        assertEquals("failure - results not same", ringByRind(0, 4), 2);
+        assertEquals("failure - results not same", ringByRind(0, 5), 2);
+        assertEquals("failure - results not same", ringByRind(0, 6), 2);
+        assertEquals("failure - results not same", ringByRind(0, 7), 2);
+        assertEquals("failure - results not same", ringByRind(0, 8), 3);
+        assertEquals("failure - results not same", ringByRind(0, 9), 3);
         assertEquals("failure - results not same", ringByRind(0, 10), 3);
         assertEquals("failure - results not same", ringByRind(0, 11), 3);
     }
 
     /**
-     *  Test ringByRind method
+     * Test ringByRind method
      */
-	@Test
-    public void testRingByRind2()
-    {
-        assertEquals("failure - results not same", ringByRind(1,  0), 1);
-        assertEquals("failure - results not same", ringByRind(1,  1), 1);
-        assertEquals("failure - results not same", ringByRind(1,  2), 1);
-        assertEquals("failure - results not same", ringByRind(1,  3), 1);
-        assertEquals("failure - results not same", ringByRind(1,  4), 2);
-        assertEquals("failure - results not same", ringByRind(1,  5), 2);
-        assertEquals("failure - results not same", ringByRind(1,  6), 2);
-        assertEquals("failure - results not same", ringByRind(1,  7), 2);
-        assertEquals("failure - results not same", ringByRind(1,  8), 2);
-        assertEquals("failure - results not same", ringByRind(1,  9), 2);
+    @Test
+    public void testRingByRind2() {
+        assertEquals("failure - results not same", ringByRind(1, 0), 1);
+        assertEquals("failure - results not same", ringByRind(1, 1), 1);
+        assertEquals("failure - results not same", ringByRind(1, 2), 1);
+        assertEquals("failure - results not same", ringByRind(1, 3), 1);
+        assertEquals("failure - results not same", ringByRind(1, 4), 2);
+        assertEquals("failure - results not same", ringByRind(1, 5), 2);
+        assertEquals("failure - results not same", ringByRind(1, 6), 2);
+        assertEquals("failure - results not same", ringByRind(1, 7), 2);
+        assertEquals("failure - results not same", ringByRind(1, 8), 2);
+        assertEquals("failure - results not same", ringByRind(1, 9), 2);
         assertEquals("failure - results not same", ringByRind(1, 10), 2);
         assertEquals("failure - results not same", ringByRind(1, 11), 2);
         assertEquals("failure - results not same", ringByRind(1, 12), 3);
@@ -104,26 +100,25 @@ public class IndexerTest
     }
 
     /**
-     *  Test ringByRind method
+     * Test ringByRind method
      */
-	@Test
-    public void testRingByRind3()
-    {
-        assertEquals("failure - results not same", ringByRind(2,   0), 1);
-        assertEquals("failure - results not same", ringByRind(2,   3), 1);
-        assertEquals("failure - results not same", ringByRind(2,   4), 2);
-        assertEquals("failure - results not same", ringByRind(2,  11), 2);
-        assertEquals("failure - results not same", ringByRind(2,  12), 3);
-        assertEquals("failure - results not same", ringByRind(2,  23), 3);
-        assertEquals("failure - results not same", ringByRind(2,  24), 4);
-        assertEquals("failure - results not same", ringByRind(2,  39), 4);
-        assertEquals("failure - results not same", ringByRind(2,  40), 5);
-        assertEquals("failure - results not same", ringByRind(2,  55), 5);
-        assertEquals("failure - results not same", ringByRind(2,  56), 6);
-        assertEquals("failure - results not same", ringByRind(2,  71), 6);
-        assertEquals("failure - results not same", ringByRind(2,  72), 7);
-        assertEquals("failure - results not same", ringByRind(2,  87), 7);
-        assertEquals("failure - results not same", ringByRind(2,  88), 8);
+    @Test
+    public void testRingByRind3() {
+        assertEquals("failure - results not same", ringByRind(2, 0), 1);
+        assertEquals("failure - results not same", ringByRind(2, 3), 1);
+        assertEquals("failure - results not same", ringByRind(2, 4), 2);
+        assertEquals("failure - results not same", ringByRind(2, 11), 2);
+        assertEquals("failure - results not same", ringByRind(2, 12), 3);
+        assertEquals("failure - results not same", ringByRind(2, 23), 3);
+        assertEquals("failure - results not same", ringByRind(2, 24), 4);
+        assertEquals("failure - results not same", ringByRind(2, 39), 4);
+        assertEquals("failure - results not same", ringByRind(2, 40), 5);
+        assertEquals("failure - results not same", ringByRind(2, 55), 5);
+        assertEquals("failure - results not same", ringByRind(2, 56), 6);
+        assertEquals("failure - results not same", ringByRind(2, 71), 6);
+        assertEquals("failure - results not same", ringByRind(2, 72), 7);
+        assertEquals("failure - results not same", ringByRind(2, 87), 7);
+        assertEquals("failure - results not same", ringByRind(2, 88), 8);
         assertEquals("failure - results not same", ringByRind(2, 103), 8);
         assertEquals("failure - results not same", ringByRind(2, 104), 9);
         assertEquals("failure - results not same", ringByRind(2, 119), 9);
@@ -142,41 +137,39 @@ public class IndexerTest
     }
 
     /**
-     *  Test pxirByRind method
+     * Test pxirByRind method
      */
-	@Test
-    public void testPxirByRind1()
-    {
-        assertEquals("failure - results not same", pxirByRind(0,  0), 1);
-        assertEquals("failure - results not same", pxirByRind(0,  1), 2);
-        assertEquals("failure - results not same", pxirByRind(0,  2), 3);
-        assertEquals("failure - results not same", pxirByRind(0,  3), 4);
-        assertEquals("failure - results not same", pxirByRind(0,  4), 1);
-        assertEquals("failure - results not same", pxirByRind(0,  5), 2);
-        assertEquals("failure - results not same", pxirByRind(0,  6), 3);
-        assertEquals("failure - results not same", pxirByRind(0,  7), 4);
-        assertEquals("failure - results not same", pxirByRind(0,  8), 1);
-        assertEquals("failure - results not same", pxirByRind(0,  9), 2);
+    @Test
+    public void testPxirByRind1() {
+        assertEquals("failure - results not same", pxirByRind(0, 0), 1);
+        assertEquals("failure - results not same", pxirByRind(0, 1), 2);
+        assertEquals("failure - results not same", pxirByRind(0, 2), 3);
+        assertEquals("failure - results not same", pxirByRind(0, 3), 4);
+        assertEquals("failure - results not same", pxirByRind(0, 4), 1);
+        assertEquals("failure - results not same", pxirByRind(0, 5), 2);
+        assertEquals("failure - results not same", pxirByRind(0, 6), 3);
+        assertEquals("failure - results not same", pxirByRind(0, 7), 4);
+        assertEquals("failure - results not same", pxirByRind(0, 8), 1);
+        assertEquals("failure - results not same", pxirByRind(0, 9), 2);
         assertEquals("failure - results not same", pxirByRind(0, 10), 3);
         assertEquals("failure - results not same", pxirByRind(0, 11), 4);
     }
 
     /**
-     *  Test pxirByRind method
+     * Test pxirByRind method
      */
-	@Test
-    public void testPxirByRind2()
-    {
-        assertEquals("failure - results not same", pxirByRind(1,  0), 1);
-        assertEquals("failure - results not same", pxirByRind(1,  1), 2);
-        assertEquals("failure - results not same", pxirByRind(1,  2), 3);
-        assertEquals("failure - results not same", pxirByRind(1,  3), 4);
-        assertEquals("failure - results not same", pxirByRind(1,  4), 1);
-        assertEquals("failure - results not same", pxirByRind(1,  5), 2);
-        assertEquals("failure - results not same", pxirByRind(1,  6), 3);
-        assertEquals("failure - results not same", pxirByRind(1,  7), 4);
-        assertEquals("failure - results not same", pxirByRind(1,  8), 5);
-        assertEquals("failure - results not same", pxirByRind(1,  9), 6);
+    @Test
+    public void testPxirByRind2() {
+        assertEquals("failure - results not same", pxirByRind(1, 0), 1);
+        assertEquals("failure - results not same", pxirByRind(1, 1), 2);
+        assertEquals("failure - results not same", pxirByRind(1, 2), 3);
+        assertEquals("failure - results not same", pxirByRind(1, 3), 4);
+        assertEquals("failure - results not same", pxirByRind(1, 4), 1);
+        assertEquals("failure - results not same", pxirByRind(1, 5), 2);
+        assertEquals("failure - results not same", pxirByRind(1, 6), 3);
+        assertEquals("failure - results not same", pxirByRind(1, 7), 4);
+        assertEquals("failure - results not same", pxirByRind(1, 8), 5);
+        assertEquals("failure - results not same", pxirByRind(1, 9), 6);
         assertEquals("failure - results not same", pxirByRind(1, 10), 7);
         assertEquals("failure - results not same", pxirByRind(1, 11), 8);
         assertEquals("failure - results not same", pxirByRind(1, 12), 1);
@@ -218,26 +211,25 @@ public class IndexerTest
     }
 
     /**
-     *  Test pxirByRind method
+     * Test pxirByRind method
      */
-	@Test
-    public void testPxirByRind3()
-    {
-        assertEquals("failure - results not same", pxirByRind(2,   0), 1);
-        assertEquals("failure - results not same", pxirByRind(2,   3), 4);
-        assertEquals("failure - results not same", pxirByRind(2,   4), 1);
-        assertEquals("failure - results not same", pxirByRind(2,  11), 8);
-        assertEquals("failure - results not same", pxirByRind(2,  12), 1);
-        assertEquals("failure - results not same", pxirByRind(2,  23), 12);
-        assertEquals("failure - results not same", pxirByRind(2,  24), 1);
-        assertEquals("failure - results not same", pxirByRind(2,  39), 16);
-        assertEquals("failure - results not same", pxirByRind(2,  40), 1);
-        assertEquals("failure - results not same", pxirByRind(2,  55), 16);
-        assertEquals("failure - results not same", pxirByRind(2,  56), 1);
-        assertEquals("failure - results not same", pxirByRind(2,  71), 16);
-        assertEquals("failure - results not same", pxirByRind(2,  72), 1);
-        assertEquals("failure - results not same", pxirByRind(2,  87), 16);
-        assertEquals("failure - results not same", pxirByRind(2,  88), 1);
+    @Test
+    public void testPxirByRind3() {
+        assertEquals("failure - results not same", pxirByRind(2, 0), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 3), 4);
+        assertEquals("failure - results not same", pxirByRind(2, 4), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 11), 8);
+        assertEquals("failure - results not same", pxirByRind(2, 12), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 23), 12);
+        assertEquals("failure - results not same", pxirByRind(2, 24), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 39), 16);
+        assertEquals("failure - results not same", pxirByRind(2, 40), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 55), 16);
+        assertEquals("failure - results not same", pxirByRind(2, 56), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 71), 16);
+        assertEquals("failure - results not same", pxirByRind(2, 72), 1);
+        assertEquals("failure - results not same", pxirByRind(2, 87), 16);
+        assertEquals("failure - results not same", pxirByRind(2, 88), 1);
         assertEquals("failure - results not same", pxirByRind(2, 103), 16);
         assertEquals("failure - results not same", pxirByRind(2, 104), 1);
         assertEquals("failure - results not same", pxirByRind(2, 119), 16);

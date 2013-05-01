@@ -6,9 +6,12 @@ import java.io.OutputStream;
 
 public interface Payload<T> {
 
-	public char discriminator();
-	public T data();
+    public char discriminator();
+
+    public T data();
+
     public void read(InputStream is) throws IOException;
+
     public void write(OutputStream os) throws IOException;
 
 }
