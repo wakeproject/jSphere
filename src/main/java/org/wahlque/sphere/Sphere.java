@@ -2,14 +2,25 @@ package org.wahlque.sphere;
 
 public interface Sphere {
 
-    public String create(String target, String type, String kind, int[] scales,
-            double[] axis);
+    public static final String SCALAR = "scalar";
+    public static final String VECTOR = "vector";
+    public static final String SURFICIAL = "surficial";
+    public static final String SPATIAL = "spatial";
+    public static final String CONSTANT = "constant";
+    public static final String TEMPORAL = "temporal";
+
+    public String create(String target, String type, String[] kinds, int scale,
+            int zscale, double[] zaxis, String expression);
+
+    public String create(String target, String expression);
 
     public String type(String target);
 
-    public String kind(String target);
+    public String[] kinds(String target);
 
     public double[] get(String target, double[] points);
+
+    public double[] query(String target, String condition);
 
     public int put(String target, double[] points, double[] values);
 

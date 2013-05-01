@@ -1,9 +1,9 @@
 package org.wahlque.healpix;
 
 import static org.junit.Assert.assertEquals;
-import static org.wahlque.grid.healpix.Indexer.all;
-import static org.wahlque.grid.healpix.Indexer.pxirByRind;
-import static org.wahlque.grid.healpix.Indexer.ringByRind;
+import static org.wahlque.healpix.Indexer.all;
+import static org.wahlque.healpix.Indexer.pxirByRind;
+import static org.wahlque.healpix.Indexer.ringByRind;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
