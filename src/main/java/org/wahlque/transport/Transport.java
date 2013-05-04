@@ -27,7 +27,6 @@ public class Transport {
      */
     public static long readNumber(InputStream is) throws IOException {
         int sign = 1, next = is.read();
-        ;
         long number = 0;
 
         if (next == '-') {
