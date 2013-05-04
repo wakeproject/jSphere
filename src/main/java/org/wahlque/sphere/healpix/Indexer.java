@@ -1,4 +1,4 @@
-package org.wahlque.healpix;
+package org.wahlque.sphere.healpix;
 
 import static java.lang.Math.floor;
 import static java.lang.Math.sqrt;

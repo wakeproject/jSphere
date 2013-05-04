@@ -1,4 +1,4 @@
-package org.wahlque.connection;
+package org.wahlque.net.connection;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-import org.wahlque.command.Command;
-import org.wahlque.reply.Reply;
+import org.wahlque.net.command.Command;
+import org.wahlque.net.reply.Reply;
 
 /**
  * Implements the Redis Universal Protocol, send/receive a command or a reply

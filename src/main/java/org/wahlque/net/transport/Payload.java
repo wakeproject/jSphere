@@ -1,4 +1,4 @@
-package org.wahlque.transport;
+package org.wahlque.net.transport;
 
 import java.io.IOException;
 import java.io.InputStream;

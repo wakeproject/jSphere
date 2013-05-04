@@ -1,15 +1,15 @@
-package org.wahlque.transport;
+package org.wahlque.net.transport;
 
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.wahlque.transport.payload.Bytes;
-import org.wahlque.transport.payload.Error;
-import org.wahlque.transport.payload.Multiple;
-import org.wahlque.transport.payload.Number;
-import org.wahlque.transport.payload.Status;
+import org.wahlque.net.transport.payload.Bytes;
+import org.wahlque.net.transport.payload.Error;
+import org.wahlque.net.transport.payload.Multiple;
+import org.wahlque.net.transport.payload.Number;
+import org.wahlque.net.transport.payload.Status;
 
 public class Transport {
 
