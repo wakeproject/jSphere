@@ -39,36 +39,36 @@ trait Sphere {
    *
    * @param target
    *            the field name
-   * @param ctype
-   *            the field component type
-   * @param stype
-   *            the field spatial kind
-   * @param variability
+   * @param compn
+   *            the field component
+   * @param dimn
+   *            the field dimension
+   * @param varblt
    *            the field variability
    * @param expression
    *            the initialization expression
    * @return success or error code
    */
-  def mkfield(target: String, ctype: String, stype: String,
-    vtype: String, expression: String): Int
+  def mkfield(target: String, compn: Component, dimn: Dimension,
+    varblt: Variability, expression: String): Int
 
   /**
-   * Query the type of the field
+   * Query the component type of the field
    *
    * @param target
    *            the field name
    * @return the type of the field
    */
-  def ctype(target: String): String
+  def compn(target: String): Component
 
   /**
-   * Query the kind of the field
+   * Query the dimension of the field
    *
    * @param target
    *            the field name
    * @return the kind of the field
    */
-  def stype(target: String): String
+  def dimn(target: String): Dimension
 
   /**
    * Query the variability of the field
@@ -77,7 +77,7 @@ trait Sphere {
    *            the field name
    * @return the variability of the field
    */
-  def vtype(target: String): String
+  def varblt(target: String): Variability
 
   /**
    * Query values of the field on some specific space-time points. The layout
@@ -134,18 +134,14 @@ trait Sphere {
 
 }
 
-object Sphere {
+sealed abstract class Component
+case object Scalar extends Component
+case object Vector extends Component
 
-  // type
-  val SCALAR: String = "scalar"
-  val VECTOR: String = "vector"
+sealed abstract class Dimension
+case object Surficial extends Dimension
+case object Spatial extends Dimension
 
-  // kind
-  val SURFICIAL: String = "surficial"
-  val SPATIAL: String = "spatial"
-
-  // variability
-  val CONSTANT: String = "constant"
-  val TEMPORAL: String = "temporal"
-
-}
+sealed abstract class Variability
+case object Constant extends Variability
+case object Temporal extends Variability
