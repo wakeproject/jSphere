@@ -1,6 +1,4 @@
-package org.wahlque.math
-
-import scala.collection.Traversable
+package org.wahlque.math.geometry
 
 trait SphericalSurface extends Manifold[(Double, Double, Double)] {
 
