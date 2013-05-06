@@ -8,7 +8,7 @@ class SphereEngine extends Sphere {
 
   def mkspace(level: Int, zscale: Int, zaxis: Array[Double]): Int = {
     spaces :+ (new SphereSpace(level, zscale, zaxis))
-    spaces.length
+    spaces.length - 1
   }
 
   def mkfield(target: String, compn: Component, dimn: Dimension,
