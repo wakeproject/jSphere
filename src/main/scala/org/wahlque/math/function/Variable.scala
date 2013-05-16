@@ -1,4 +1,4 @@
-package org.wahlque.math
+package org.wahlque.math.function
 
 trait Variable[T] {
 
