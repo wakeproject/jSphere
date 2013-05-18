@@ -2,11 +2,7 @@ package org.wahlque.math.geometry
 
 import scala.math.{ sqrt, sin, cos, random => rnd, Pi }
 
-class Vector3(a: Double, b: Double, c: Double) {
-
-  val x: Double = a
-  val y: Double = b
-  val z: Double = c
+class Vector3(val x: Double, val y: Double, val z: Double) {
 
   def norm: Double = sqrt(x * x + y * y + z * z)
 
