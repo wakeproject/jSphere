@@ -2,7 +2,7 @@ package org.wahlque.healpix
 
 import org.scalatest.FunSuite
 
-import org.wahlque.sphere.healpix.Indexer.{ all, ringByRind, pxirByRind }
+import org.wahlque.sphere.healpix.Indexer._
 
 class IndexerTestSuite extends FunSuite {
 
@@ -208,6 +208,67 @@ class IndexerTestSuite extends FunSuite {
     assert(pxirByRind(2, 187) == 8)
     assert(pxirByRind(2, 188) == 1)
     assert(pxirByRind(2, 191) == 4)
+  }
+
+  test("Funtion nind at base 0 and level 1") {
+    assert(nind(1, 0, 0, 0) == 0)
+    assert(nind(1, 0, 1, 0) == 1)
+    assert(nind(1, 0, 0, 1) == 2)
+    assert(nind(1, 0, 1, 1) == 3)
+  }
+
+  test("Funtion nind at base 0 and level 2") {
+    assert(nind(2, 0, 0, 0) == 0)
+    assert(nind(2, 0, 1, 0) == 1)
+    assert(nind(2, 0, 0, 1) == 2)
+    assert(nind(2, 0, 1, 1) == 3)
+    assert(nind(2, 0, 2, 0) == 4)
+    assert(nind(2, 0, 3, 0) == 5)
+    assert(nind(2, 0, 2, 1) == 6)
+    assert(nind(2, 0, 3, 1) == 7)
+    assert(nind(2, 0, 0, 2) == 8)
+    assert(nind(2, 0, 1, 2) == 9)
+    assert(nind(2, 0, 0, 3) == 10)
+    assert(nind(2, 0, 1, 3) == 11)
+    assert(nind(2, 0, 2, 2) == 12)
+    assert(nind(2, 0, 3, 2) == 13)
+    assert(nind(2, 0, 2, 3) == 14)
+    assert(nind(2, 0, 3, 3) == 15)
+  }
+
+  test("Funtion nind at base 0 and level 3") {
+    assert(nind(2, 0, 0, 0) == 0)
+    assert(nind(2, 0, 1, 0) == 1)
+    assert(nind(2, 0, 0, 1) == 2)
+    assert(nind(2, 0, 1, 1) == 3)
+    assert(nind(2, 0, 2, 0) == 4)
+    assert(nind(2, 0, 3, 0) == 5)
+    assert(nind(2, 0, 2, 1) == 6)
+    assert(nind(2, 0, 3, 1) == 7)
+    assert(nind(2, 0, 0, 2) == 8)
+    assert(nind(2, 0, 1, 2) == 9)
+    assert(nind(2, 0, 0, 3) == 10)
+    assert(nind(2, 0, 1, 3) == 11)
+    assert(nind(2, 0, 2, 2) == 12)
+    assert(nind(2, 0, 3, 2) == 13)
+    assert(nind(2, 0, 2, 3) == 14)
+    assert(nind(2, 0, 3, 3) == 15)
+    assert(nind(2, 0, 4, 4) == 16)
+    assert(nind(2, 0, 5, 4) == 17)
+    assert(nind(2, 0, 4, 5) == 18)
+    assert(nind(2, 0, 5, 5) == 19)
+    assert(nind(2, 0, 6, 4) == 20)
+    assert(nind(2, 0, 7, 4) == 21)
+    assert(nind(2, 0, 6, 5) == 22)
+    assert(nind(2, 0, 7, 5) == 23)
+    assert(nind(2, 0, 4, 6) == 24)
+    assert(nind(2, 0, 5, 6) == 25)
+    assert(nind(2, 0, 4, 7) == 26)
+    assert(nind(2, 0, 5, 7) == 27)
+    assert(nind(2, 0, 6, 6) == 28)
+    assert(nind(2, 0, 7, 6) == 29)
+    assert(nind(2, 0, 6, 7) == 30)
+    assert(nind(2, 0, 7, 7) == 31)
   }
 
 }

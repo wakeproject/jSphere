@@ -80,6 +80,16 @@ object Indexer {
     }
   }
 
+  /**
+   *  The ring index by ring and pixel in ring
+   */
+  def rind(ring: Int, pxir: Int): Int = {
+    ???
+  }
+
+  /**
+   *  The ring number from north pole by ring index
+   */
   def ringByRind(level: Int, index: Int): Int = {
     var ring: Int = -1
     var size: Int = power(level)
@@ -111,6 +121,9 @@ object Indexer {
 
   }
 
+  /**
+   *  The pixel in ring number by ring index
+   */
   def pxirByRind(level: Int, index: Int): Int = {
     var pxir: Int = -1
     var size: Int = power(level)
@@ -138,6 +151,63 @@ object Indexer {
       return -1
     }
 
+  }
+
+  /**
+   *  The nested index by base and schema
+   */
+  def nind(level: Int, base: Int, neschema: Int, nwschema: Int): Int = {
+    base * power(level) * power(level) + nwschema * power(level) + neschema
+  }
+
+  /**
+   *  The base by nind
+   */
+  def baseByNind(level: Int, nind: Int): Int = {
+    ???
+  }
+
+  /**
+   *  The neschema by nind
+   */
+  def neschemaByNind(level: Int, nind: Int): Int = {
+    ???
+  }
+
+  /**
+   *  The nwschema by nind
+   */
+  def nwschemaByNind(level: Int, nind: Int): Int = {
+    ???
+  }
+
+  /**
+   *  The nwschema by nind
+   */
+  def ringByNind(level: Int, nind: Int): List[Int] = {
+    var base = baseByNind(level, nind)
+    var neschema = neschemaByNind(level, nind)
+    var nwschema = nwschemaByNind(level, nind)
+    var row = floor(base / NPHI)
+    var lat = row + 2
+    var lng = 2 * (base % NPHI) - row % 2 + 1
+    var v = neschema + nwschema
+    var h = neschema - nwschema
+    ???
+  }
+
+  /**
+   *  The nwschema by nind
+   */
+  def pxirByNind(level: Int, nind: Int): List[Int] = {
+    ???
+  }
+
+  /**
+   *  The nwschema by nind
+   */
+  def rindByNind(level: Int, nind: Int): List[Int] = {
+    ???
   }
 
 }
